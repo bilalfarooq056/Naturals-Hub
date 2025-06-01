@@ -82,4 +82,4 @@ dbms_project/
 
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/your-username/b2b-naturals-hub.git
+   git clone https://github.com/bilalfarooq056/b2b-naturals-hub.git
