@@ -1,0 +1,291 @@
+/* === Body Styling === */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f9f0;
+    color: #333;
+}
+
+/* === Drop down menu with profile === */
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+.show {
+    display: block;
+}
+
+/* === Dashboard Container === */
+.dashboard-container {
+    display: flex;
+}
+
+/* === Sidebar === */
+.sidebar {
+    width: 220px;
+    min-height: 100vh;
+    background-color: #e8f5e9;
+    padding: 20px 10px;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #4CAF50;
+}
+
+/* === Main Content Area === */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* === Content Sections === */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* === Header Bar === */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 45px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* === Footer === */
+.footer {
+    height: 100px;
+    width: 100%;
+    position: relative;
+    background-color: #4CAF50;
+}
+
+/* === Login Container === */
+.login-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* === Button Styling === */
+.btn, .product-card .btn, .product-item .btn, .form-container button, .edit-btn, .remove-btn {
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn, .product-card .btn, .product-item .btn, .form-container button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn:hover, .product-card .btn:hover, .product-item .btn:hover, .form-container button:hover {
+    background-color: #45a049;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #1976D2;
+}
+
+.remove-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.remove-btn:hover {
+    background-color: #d32f2f;
+}
+
+/* === Toggle Button === */
+.toggle-btn {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* === Product Card === */
+.product-card, .product-item {
+    width: 250px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-card img, .product-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-card .product-actions, .product-card .product-details {
+    margin-top: 10px;
+}
+
+/* === Product Card List === */
+.product-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* === Top Navigation Links === */
+.nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex: 1;
+    background-color: white;
+    padding: 10px 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.nav a:hover {
+    border: 1px solid #4CAF50;
+    background-color: #e0e0e0;
+}
+
+/* === General Content Wrapper === */
+.content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* === Form Container === */
+.form-container {
+    display: none;
+    margin-top: 20px;
+    background-color: #f9fff9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-container input, .form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.form-container input:focus, .form-container select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+
+/* edit button css */
+.edit-btn {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.editing-label {
+    background: #ffe58f;
+    color: #333;
+    padding: 2px 6px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 4px;
+}
