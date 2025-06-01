@@ -1,0 +1,51 @@
+<?php
+ob_clean(); // Clear any accidental whitespace or buffer
+header('Content-Type: application/json');
+session_start();
+require '../db_connection.php'; // adjust if needed
+
+// Check required fields
+$required = ['productName', 'category', 'price', 'quantity', 'Avalibility_Date', 'unit', 'description'];
+foreach ($required as $field) {
+    if (empty($_POST[$field])) {
+        echo json_encode(['status' => 'error', 'message' => "Missing required field: $field"]);
+        exit;
+    }
+}
+
+$productName = $_POST['productName'];
+$category = $_POST['category'];
+$price = $_POST['price'];
+$quantity = $_POST['quantity'];
+$availabilityDate = $_POST['Avalibility_Date'];
+$unit = $_POST['unit'];
+$description = $_POST['description'];
+
+// Assume user ID is stored in session as 'person_id'
+$personId = $_SESSION['person_id'] ?? null;
+if (!$personId) {
+    echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
+    exit;
+}
+
+// Get category_id from name
+$categoryQuery = $conn->prepare("SELECT category_id FROM category WHERE category_name = ?");
+$categoryQuery->bind_param("s", $category);
+$categoryQuery->execute();
+$categoryResult = $categoryQuery->get_result();
+if ($categoryResult->num_rows === 0) {
+    echo json_encode(['status' => 'error', 'message' => 'Invalid category']);
+    exit;
+}
+$categoryId = $categoryResult->fetch_assoc()['category_id'];
+
+// Insert product
+$insertQuery = $conn->prepare("INSERT INTO product (person_id, category_id, product_name, description, quantity, price_per_unit, unit, availability_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$insertQuery->bind_param("iissidss", $personId, $categoryId, $productName, $description, $quantity, $price, $unit, $availabilityDate);
+
+if ($insertQuery->execute()) {
+    echo json_encode(['status' => 'success']);
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Database error']);
+}
+?>
